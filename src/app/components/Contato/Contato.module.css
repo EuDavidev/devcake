@@ -1,0 +1,116 @@
+.container_main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px    
+}
+.container_contato{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+}
+.container_titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 30px;
+}
+.container_conteudo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+.container_texto{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+.container_texto h2{
+    font-family: var(--titulo);
+    font-size: 1.5rem;
+    color: var(--creme-color);
+}
+
+.container_texto h3{
+    font-family: var(--titulo);
+    font-size: 1.5rem;
+    color: #000000;
+}
+
+.container_texto p{
+    font-family: var(--texto);
+    font-size: 1rem;
+    color: var(--creme-color);
+}
+
+.container_redes{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 20px;
+}
+.container_redes img{
+    width: 100%;
+    max-width: 40px;
+    height: auto;
+}
+
+.container_redes img{
+    background-color: #fff;
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+
+.container_logo{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.container_logo img{
+    display: flex;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+}
+
+.container_mapa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.container_mapa h2{
+    font-family: var(--titulo);
+    color: var(--creme-color);
+}
+
+.container_mapa iframe{
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
+    border: 3px solid #000000;
+    border-radius: 20px;
+}
+
+.container_rodape{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+}
+
+.container_rodape{
+    font-family: var(--texto);
+    color: var(--creme-color);
+}
