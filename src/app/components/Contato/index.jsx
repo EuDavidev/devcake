@@ -1,9 +1,5 @@
 import estilos from "./Contato.module.css";
 import Image from "next/image";
-import Facebook from "../../../../public/assets/icons/facebook.png";
-import Instagram from "../../../../public/assets/icons/instagram.png";
-import Tiktok from "../../../../public/assets/icons/tiktok.png";
-import Whatsapp from "../../../../public/assets/icons/whatsapp.png";
 import Logo from "../../../../public/logo-sem-fundo.png";
 
 export default function Contato(){
