@@ -1,13 +1,14 @@
 'use client';
 
 import { retornarProdutos, buscarProduto, filtrarProdutos } from "../../services";
-import Image from "next/image";
 import Styles from './FiltrarProdutos.module.css'
+import Image from "next/image";
+import lupa from "../../../../public/assets/icons/search.png"
 
 export const FiltrarProdutos = ({ listaProdutos, setListaProdutos, textoBusca, setTextoBusca }) => {
 
-    const handleFiltrarProdutos = (plataforma) => {
-        setListaProdutos(filtrarProdutos(plataforma));
+    const handleFiltrarProdutos = (produtos) => {
+        setListaProdutos(filtrarProdutos(produtos));
         setTextoBusca("");
     }
 
@@ -20,29 +21,28 @@ export const FiltrarProdutos = ({ listaProdutos, setListaProdutos, textoBusca, s
         setTextoBusca(textoDigitado);
         setListaProdutos(buscarProduto(textoDigitado));
     };
+    
     return (
         <div className={Styles.container}>
-            <div className={Styles.filters}>
-                <button onClick={() => handleFiltrarProdutos("Entradas")}>Entradas</button>
-                <button onClick={() => handleFiltrarProdutos("Massas")}>Massas</button>
-                <button onClick={() => handleFiltrarProdutos("Carnes")}>Carnes</button>
-                <button onClick={() => handleFiltrarProdutos("Bebidas")}>Bebidas</button>
-                <button onClick={() => handleFiltrarProdutos("Saladas")}>Saladas</button>
-                <button onClick={() => handleFiltrarProdutos("Sobremesas")}>Sobremesas</button>
-            </div>
-            <div>
-                <button className={Styles.limparFiltro} onClick={handleLimparFiltro}>
-                    Limpar Filtro
-                </button>
-            </div>
             <div className={Styles.search}>
-                <Image src={lupa} alt="search" width={20} height={20} className={Styles.lupa}/>
+                <Image src={lupa} width={20} height={20} alt="Ícone de busca" className={Styles.lupa}/>
                 <input
                     type="text"
                     value={textoBusca}
                     onChange={(event) => handleBuscarProdutos(event.target.value)}
                     placeholder="Pesquise aqui um dos pratos do nosso cardápio"
                 />
+            </div>
+            <div className={Styles.filters}>
+                <button onClick={() => handleFiltrarProdutos("Tortas")}>Tortas</button>
+                <button onClick={() => handleFiltrarProdutos("Sobremesas")}>Sobremesas</button>
+                <button onClick={() => handleFiltrarProdutos("Fatia")}>Fatia</button>
+                <button onClick={() => handleFiltrarProdutos("Bolos")}>Bolos</button>
+            </div>
+            <div>
+                <button className={Styles.limparFiltro} onClick={handleLimparFiltro}>
+                    Limpar Filtro
+                </button>
             </div>
         </div>
     )

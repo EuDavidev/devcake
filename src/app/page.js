@@ -1,17 +1,28 @@
-import Image from "next/image";
+'use client';
+import Cards from "./components/CardsProdutos";
+import { FiltrarProdutos }  from "./components/FiltrarProdutos";
+import { retornarProdutos } from "./services";
 import styles from "./page.module.css";
 import Contato  from "@/app/components/Contato/index";
-import FiltrarProdutos from "@/app/components/FiltrarProdutos/index";
+import { useState } from "react";
 
 export default function Home() {
+  const [listaProdutos, setListaProdutos] = useState(retornarProdutos());
+  const [textoBusca, setTextoBusca] = useState("");
+  
   return (
-    <div>      
-      <footer>
-        <div className={styles.page}>
-          <FiltrarProdutos/>
-          <Contato/>
-        </div>
-      </footer>       
-    </div>       
+    <div className={styles.page_content}>    
+      <section className={styles.produtos}>
+        <FiltrarProdutos 
+          listaProdutos={listaProdutos}
+          setListaProdutos={setListaProdutos}
+          textoBusca={textoBusca}
+          setTextoBusca={setTextoBusca}/>
+        <Cards produtos={listaProdutos} />
+      </section>
+      <section className={styles.contato}>
+      <Contato/>
+      </section>
+    </div>
   );
 }
