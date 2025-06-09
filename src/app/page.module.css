@@ -1,0 +1,19 @@
+.spacer {
+  height: 24px;
+}
+
+.spacerTopoFiltros {
+  height: 32px;
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 8px 2vw 16px 2vw;
+  }
+  .spacer {
+    height: 12px;
+  }
+  .spacerTopoFiltros {
+    height: 18px;
+  }
+}
