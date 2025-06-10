@@ -10,7 +10,7 @@ export default function Navbar() {
     <div className={styles.navbar}>
       <section >
         <div className={styles.logo}>
-          <Link href="/"><img src="/logo-sem-fundo.png" alt="Logo DevCake" width={90} height={90} /></Link>
+          <Link href="/"><Image src="/logo-sem-fundo.png" alt="Logo DevCake" width={90} height={90} /></Link>
         </div>
         <ul className={styles.menu}>
           <li><Link href="/">Home</Link></li>

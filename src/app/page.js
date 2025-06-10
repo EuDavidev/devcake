@@ -8,7 +8,7 @@ import Sobre from "@/app/components/Sobre";
 import Contato  from "@/app/components/Contato/index";
 import styles from "./page.module.css";
 import Banner from './components/Banner'; 
-import Navbar from "./components/Navbar";
+import NavBar from "./components/NavBar";
 
 export default function Home() {
   const [listaProdutos, setListaProdutos] = useState(retornarProdutos());
@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className={styles.page_content}> 
       <header>
-        <Navbar/>
+        <NavBar/>
       </header>
       <section id="home">
         <Banner/>
