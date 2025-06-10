@@ -1,3 +1,5 @@
+<h1>DevCake</h1>
+
 ✨Visão Geral Este repositório contém o site moderno da Confeitaria DevCake, desenvolvido com React.js. Nosso site apresenta nossos deliciosos bolos, doces finos e sobremesas artesanais, com funcionalidades de catálogo online, encomendas personalizadas e galeria de trabalhos.
 
 ✨ Funcionalidades Principais Catálogo interativo de produtos com filtros por categoria
