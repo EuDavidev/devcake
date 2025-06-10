@@ -16,12 +16,14 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 30px;    
+    padding: 30px;
 }
 
 .container_titulo h1{
     font-family: var(--titulo);
     color: var(--marrom-color);
+     font-size: 40px;
+    font-weight: bold;
 }
 .container_conteudo{
     display: flex;

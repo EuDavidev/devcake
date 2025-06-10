@@ -12,11 +12,6 @@ export const FiltrarProdutos = ({ listaProdutos, setListaProdutos, textoBusca, s
         setTextoBusca("");
     }
 
-    const handleLimparFiltro = () => {
-        setListaProdutos(retornarProdutos());
-        setTextoBusca("");
-    }
-
     const handleBuscarProdutos = (textoDigitado) => {
         setTextoBusca(textoDigitado);
         setListaProdutos(buscarProduto(textoDigitado));
@@ -24,6 +19,7 @@ export const FiltrarProdutos = ({ listaProdutos, setListaProdutos, textoBusca, s
     
     return (
         <div className={Styles.container}>
+            <h1 className={Styles.titulo}>Produtos</h1>
             <div className={Styles.search}>
                 <Image src={lupa} width={20} height={20} alt="Ícone de busca" className={Styles.lupa}/>
                 <input
@@ -38,11 +34,6 @@ export const FiltrarProdutos = ({ listaProdutos, setListaProdutos, textoBusca, s
                 <button onClick={() => handleFiltrarProdutos("Sobremesas")}>Sobremesas</button>
                 <button onClick={() => handleFiltrarProdutos("Fatia")}>Fatia</button>
                 <button onClick={() => handleFiltrarProdutos("Bolos")}>Bolos</button>
-            </div>
-            <div>
-                <button className={Styles.limparFiltro} onClick={handleLimparFiltro}>
-                    Limpar Filtro
-                </button>
             </div>
         </div>
     )

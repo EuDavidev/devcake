@@ -15,7 +15,8 @@ export default function Home() {
   const [textoBusca, setTextoBusca] = useState("");
   
   return (
-    <div className={styles.page_content}>    
+    <div className={styles.page_content}> 
+      <Banner/>   
       <section className={styles.produtos}>
         <FiltrarProdutos 
           listaProdutos={listaProdutos}
