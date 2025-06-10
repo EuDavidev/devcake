@@ -5,7 +5,7 @@ import React from 'react'
 import styles from './NavBar.module.css'
 import Link from 'next/link'
 
-export default function Navbar() {
+export default function NavBar() {
   return (
     <div className={styles.navbar}>
       <section >
