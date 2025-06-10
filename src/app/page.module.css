@@ -6,6 +6,14 @@
   height: 32px;
 }
 
+.contato{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: var(--creme-color);
+}
+
+
 @media (max-width: 600px) {
   .wrapper {
     padding: 8px 2vw 16px 2vw;
