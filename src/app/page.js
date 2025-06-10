@@ -25,7 +25,9 @@ export default function Home() {
         <Sobre/>
       </section>
       <section className={styles.contato}>
-      <Contato/>
+        <div className={styles.footer}>
+          <Contato/>
+        </div>
       </section>
     </div>
   );
