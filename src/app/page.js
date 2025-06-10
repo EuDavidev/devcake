@@ -9,7 +9,6 @@ import Contato  from "@/app/components/Contato/index";
 import styles from "./page.module.css";
 import Banner from './components/Banner'; 
 import Navbar from "./components/Navbar";
-import Link from "next/link";
 
 export default function Home() {
   const [listaProdutos, setListaProdutos] = useState(retornarProdutos());
