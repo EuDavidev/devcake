@@ -8,7 +8,8 @@ import Sobre from "@/app/components/Sobre";
 import Contato  from "@/app/components/Contato/index";
 import styles from "./page.module.css";
 import Banner from './components/Banner'; 
-
+import Navbar from "./components/Navbar";
+import Link from "next/link";
 
 export default function Home() {
   const [listaProdutos, setListaProdutos] = useState(retornarProdutos());
@@ -16,8 +17,13 @@ export default function Home() {
   
   return (
     <div className={styles.page_content}> 
-      <Banner/>   
-      <section className={styles.produtos}>
+      <header>
+        <Navbar/>
+      </header>
+      <section id="home">
+        <Banner/>
+      </section>
+      <section id="produtos" className={styles.produtos}>
         <FiltrarProdutos 
           listaProdutos={listaProdutos}
           setListaProdutos={setListaProdutos}
@@ -25,11 +31,11 @@ export default function Home() {
           setTextoBusca={setTextoBusca}/>
         <Cards produtos={listaProdutos} />
       </section>
-      <section>
+      <section id="sobre">
         <Sobre/>
       </section>
       <section className={styles.contato}>
-        <div className={styles.footer}>
+        <div id="contato" className={styles.footer}>
           <Contato/>
         </div>
       </section>

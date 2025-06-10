@@ -1,0 +1,42 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: rgb(255, 255, 255, 0.5);
+  position: fixed;
+  z-index: 1000;
+}
+
+.navbar section {
+  width: 100%;
+  max-width: 1240px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu {
+  background-color: rgb(255, 242, 235, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  gap: 4px;
+  margin: 16px;
+}
+
+.menu li {
+  list-style: none;
+  a {
+    color: var(--marrom-color);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0px 20px;
+  }
+}

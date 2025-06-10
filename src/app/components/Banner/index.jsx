@@ -7,7 +7,7 @@ function Banner() {
 
   const bannerImages = [
     {
-      img: '/bolochocolate_1.jpg',
+      img: '/banner.jpeg',
       title: 'Bolo de Chocolate!',
       description: 'Pode ser muito doce, mas não pode negar que é atraente'
     },

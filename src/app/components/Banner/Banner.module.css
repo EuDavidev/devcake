@@ -1,7 +1,6 @@
-
 .container {
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     overflow: hidden;
 }
@@ -13,7 +12,7 @@
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    transition: all 0.8s ease-in-out;
+    transition:0.8s transform;
 }
 .overlay {  
     position: absolute;
@@ -31,7 +30,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: white;
+    color: var(--rosa-light-color);
     z-index: 2;
     max-width: 600px;
     padding: 20px;
@@ -48,6 +47,7 @@
     font-size: 1.2rem;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     animation: fadeInUp 1s ease-in-out 0.3s both;
+    font-family: var(--texto);
 }
 
 .dots {
@@ -61,11 +61,10 @@
 }
 
 .dot {
-    width: 50px;
-    height: 50px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    border: 2px solid white;
-    background: rgba(255, 255, 255, 0.3);
+    border: none;
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -77,13 +76,12 @@
 }
 
 .dot:hover {
-    background: rgba(255, 255, 255, 0.5);
     transform: scale(1.1);
 }
 
 .active {
-    background: white;
-    color: #333;
+    background: var(--marrom-color);
+    color: var(--marrom-color);
     transform: scale(1.2);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
@@ -100,12 +98,24 @@
 }
 
 @media (max-width: 768px) {
+    .container {
+        height: 60vh;
+        min-height: 350px;
+    }
+
+    .content {
+        max-width: 90vw;
+        padding: 10px;
+    }
+
     .content h1 {
         font-size: 2rem;
+        word-break: break-word;
     }
     
     .content p {
         font-size: 1rem;
+        word-break: break-word;
     }
     
     .dot {
@@ -121,17 +131,29 @@
 }
 
 @media (max-width: 480px) {
+    .container {
+        height: 45vh;
+        min-height: 220px;
+    }
+
+    .content {
+        max-width: 98vw;
+        padding: 5px;
+    }
+
     .content h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+        word-break: break-word;
     }
     
     .content p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        word-break: break-word;
     }
     
     .dot {
-        width: 35px;
-        height: 35px;
-        font-size: 12px;
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
     }
 }
