@@ -1,3 +1,4 @@
+
 'use client';
 import { useState } from "react";
 import { retornarProdutos } from "./services";
@@ -6,6 +7,8 @@ import Cards from "./components/CardsProdutos";
 import Sobre from "@/app/components/Sobre";
 import Contato  from "@/app/components/Contato/index";
 import styles from "./page.module.css";
+import Banner from './components/Banner'; 
+
 
 export default function Home() {
   const [listaProdutos, setListaProdutos] = useState(retornarProdutos());
@@ -32,3 +35,4 @@ export default function Home() {
     </div>
   );
 }
+
