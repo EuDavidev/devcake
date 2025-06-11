@@ -31,6 +31,7 @@ export const FiltrarProdutos = ({ listaProdutos, setListaProdutos, textoBusca, s
             </div>
             <div className={Styles.filters}>
                 <button onClick={() => handleFiltrarProdutos("Tortas")}>Tortas</button>
+                <button onClick={() => handleFiltrarProdutos("Salgados")}>Salgados</button>
                 <button onClick={() => handleFiltrarProdutos("Sobremesas")}>Sobremesas</button>
                 <button onClick={() => handleFiltrarProdutos("Fatia")}>Fatia</button>
                 <button onClick={() => handleFiltrarProdutos("Bolos")}>Bolos</button>
