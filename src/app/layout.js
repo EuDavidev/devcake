@@ -2,15 +2,14 @@ import "./globals.css";
 
 export const metadata = {
   title: "DevCake",
-  description: "O acompanhamento perfeito para seu café e seu código.",
+  description:
+    "Confeitaria DevCake: bolos artesanais para seu café e seu código.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
-        {children}
-      </body>
+    <html lang="pt-BR">
+      <body>{children}</body>
     </html>
   );
 }
