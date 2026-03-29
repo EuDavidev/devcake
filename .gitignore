@@ -45,3 +45,7 @@ next-env.d.ts
 /.augment/
 /.claude/
 /.cortex/
+
+# local skills and metadata (keep local, do not publish in portfolio repo)
+/skills/
+/skills-lock.json
