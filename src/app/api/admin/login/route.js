@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
-import { randomBytes } from "node:crypto";
 import { z } from "zod";
 import { getDb } from "@/lib/mongodb";
 import { verifyPassword } from "@/lib/auth/password";
+import {
+  createAdminSession,
+  SESSION_COOKIE_NAME,
+  SESSION_TTL_SECONDS,
+} from "@/lib/auth/session";
 
 export const runtime = "nodejs";
 
@@ -87,23 +91,15 @@ export async function POST(request) {
 
     registerAttempt(ip, true);
 
-    const token = randomBytes(32).toString("hex");
-    const now = new Date();
-    const expiresAt = new Date(now.getTime() + 8 * 60 * 60 * 1000);
-    await db.collection("admin_sessions").insertOne({
-      token,
-      adminId: admin._id,
-      createdAt: now,
-      expiresAt,
-    });
+    const token = await createAdminSession(admin._id);
 
     const response = NextResponse.json({ ok: true });
-    response.cookies.set("admin_session", token, {
+    response.cookies.set(SESSION_COOKIE_NAME, token, {
       httpOnly: true,
       sameSite: "lax",
       secure: process.env.NODE_ENV === "production",
       path: "/",
-      maxAge: 60 * 60 * 8,
+      maxAge: SESSION_TTL_SECONDS,
     });
 
     return response;
