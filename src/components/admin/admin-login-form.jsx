@@ -43,43 +43,55 @@ export function AdminLoginForm() {
     return (
         <Card className="mx-auto w-full max-w-md">
             <CardHeader>
-                <CardTitle>Admin Login</CardTitle>
-                <CardDescription>Use your admin credentials to access order management.</CardDescription>
+                <CardTitle>Acesso Administrativo</CardTitle>
+                <CardDescription>Entre com suas credenciais para gerenciar pedidos da DevCake.</CardDescription>
             </CardHeader>
             <CardContent>
-                <form className="space-y-4" onSubmit={onSubmit}>
+                <form className="space-y-4" onSubmit={onSubmit} noValidate>
                     <div className="space-y-2">
-                        <label className="text-sm font-semibold" htmlFor="admin-email">Email</label>
+                        <label className="text-sm font-semibold" htmlFor="admin-email">E-mail</label>
                         <Input
                             id="admin-email"
                             type="email"
                             value={email}
                             onChange={(event) => setEmail(event.target.value)}
                             autoComplete="email"
+                            placeholder="admin@devcake.com"
+                            aria-label="E-mail do administrador"
                             required
                         />
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-sm font-semibold" htmlFor="admin-password">Password</label>
+                        <label className="text-sm font-semibold" htmlFor="admin-password">Senha</label>
                         <Input
                             id="admin-password"
                             type="password"
                             value={password}
                             onChange={(event) => setPassword(event.target.value)}
                             autoComplete="current-password"
+                            placeholder="Sua senha"
+                            aria-label="Senha do administrador"
                             required
                         />
                     </div>
 
                     {error ? (
-                        <p className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-700">
+                        <p
+                            role="alert"
+                            aria-live="assertive"
+                            className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-700"
+                        >
                             {error}
                         </p>
                     ) : null}
 
+                    <p className="text-xs text-browndev/70">
+                        Seu acesso expira automaticamente por seguranca apos algumas horas.
+                    </p>
+
                     <Button className="w-full" type="submit" disabled={loading}>
-                        {loading ? "Signing in..." : "Sign in"}
+                        {loading ? "Entrando..." : "Entrar"}
                     </Button>
                 </form>
             </CardContent>
