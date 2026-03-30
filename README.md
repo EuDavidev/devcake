@@ -1,24 +1,49 @@
-<h1>DevCake</h1>
+# DevCake
 
-✨Visão Geral Este repositório contém o site moderno da Confeitaria DevCake, desenvolvido com React.js. Nosso site apresenta nossos deliciosos bolos, doces finos e sobremesas artesanais, com funcionalidades de catálogo online, encomendas personalizadas e galeria de trabalhos.
+Projeto full stack em evolucao para portfolio, com foco em vitrine de confeitaria e fluxo real de pedidos.
 
-✨ Funcionalidades Principais Catálogo interativo de produtos com filtros por categoria
-- Sistema de encomendas com cálculo de preço em tempo real
-- Galeria 3D de bolos personalizados
-- Formulário de orçamento para eventos
-- Blog de confeitaria com tutoriais
-- Área do cliente para acompanhamento de pedidos
+## Estado atual
 
-🛠 Stack Tecnológica Frontend:
-- Next.js
-- JavaScript
-- CSS Modules
+- Aplicacao Next.js com landing page de portfolio da DevCake.
+- Secoes de hero, produtos, sobre e contato.
+- Componentes reutilizaveis de UI e estrutura inicial para carrinho no cliente.
+- API publica de pedidos implementada com validacao no servidor.
+- Base de autenticacao admin implementada com sessao HttpOnly e rate limiting inicial.
 
-Dependências Principais:
-- react-icons para ícones
-- react-image-gallery para exibição de produtos
-- react-toastify para notificações
-- styled-components para estilização avançada
+## Roadmap ativo (M1..M5)
 
-� Como Executar Localmente Pré-requisitos Node.js
-- *npm run dev*
+- M1: Credibilidade do projeto (README honesto, lint e limpeza de legado).
+- M2: Fundacao backend (MongoDB, contrato de ambiente e APIs iniciais).
+- M3: Painel administrativo autenticado para gestao de produtos e pedidos.
+- M4: Evolucao UX/UI e acessibilidade avancada.
+- M5: Cobertura de testes, hardening e deploy de portfolio.
+
+## Status das milestones
+
+- [x] M1: Credibilidade do projeto.
+- [x] M2: Fundacao backend.
+- [ ] M3: Painel administrativo autenticado.
+- [ ] M4: Evolucao UX/UI e acessibilidade avancada.
+- [ ] M5: Cobertura de testes, hardening e deploy.
+
+## Como rodar localmente
+
+1. Instale as dependencias:
+
+   npm install
+
+2. Inicie o ambiente de desenvolvimento:
+
+   npm run dev
+
+3. Acesse no navegador:
+
+   http://localhost:3000
+
+## Variaveis de ambiente
+
+Use um arquivo `.env.local` com as seguintes chaves (necessarias para as fases de backend):
+
+- MONGODB_URI=
+- ADMIN_SEED_EMAIL=
+- ADMIN_SEED_PASSWORD=
