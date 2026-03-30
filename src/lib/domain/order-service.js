@@ -26,13 +26,19 @@ export async function hydrateOrderItemsFromCatalog(items) {
   const collection = db.collection("products");
 
   const uniqueIds = [...new Set(items.map((item) => String(item.productId)))];
+  const numericIds = [
+    ...new Set(uniqueIds.map((id) => Number(id)).filter(Number.isFinite)),
+  ];
   const objectIds = uniqueIds
     .filter((id) => ObjectId.isValid(id))
     .map((id) => new ObjectId(id));
 
   const products = await collection
     .find({
-      $or: [{ id: { $in: uniqueIds } }, { _id: { $in: objectIds } }],
+      $or: [
+        { id: { $in: [...uniqueIds, ...numericIds] } },
+        { _id: { $in: objectIds } },
+      ],
       isActive: { $ne: false },
     })
     .toArray();

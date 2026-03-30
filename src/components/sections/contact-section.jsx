@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Camera, MessageCircle } from "lucide-react";
@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useCartStore } from "@/lib/store";
+import { submitOrder } from "@/lib/order-client";
 
 const contactSchema = z.object({
     nome: z.string().min(3, "Informe seu nome completo."),
@@ -24,11 +25,14 @@ export function ContactSection() {
     const checkoutMessage = useCartStore((state) => state.checkoutMessage);
     const setCheckoutMessage = useCartStore((state) => state.setCheckoutMessage);
     const clearCart = useCartStore((state) => state.clearCart);
+    const cart = useCartStore((state) => state.cart);
+    const [submitError, setSubmitError] = useState("");
+    const [submitSuccess, setSubmitSuccess] = useState("");
 
     const {
         register,
         handleSubmit,
-        formState: { errors, isSubmitSuccessful, isSubmitting },
+        formState: { errors, isSubmitting },
         reset,
         setValue,
     } = useForm({
@@ -46,11 +50,33 @@ export function ContactSection() {
     }, [checkoutMessage, setValue]);
 
     const onSubmit = async (values) => {
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        console.info("Contato enviado:", values);
-        clearCart();
-        setCheckoutMessage("");
-        reset();
+        setSubmitError("");
+        setSubmitSuccess("");
+
+        if (cart.length === 0) {
+            setSubmitError("Seu carrinho esta vazio. Adicione itens antes de enviar o pedido.");
+            return;
+        }
+
+        const payload = {
+            customerName: values.nome.trim(),
+            customerEmail: values.email.trim().toLowerCase(),
+            notes: values.mensagem?.trim() || "",
+            items: cart.map((item) => ({
+                productId: String(item.id),
+                quantity: item.quantity,
+            })),
+        };
+
+        try {
+            const created = await submitOrder(payload);
+            clearCart();
+            setCheckoutMessage("");
+            reset();
+            setSubmitSuccess(`Pedido ${created.orderId} criado com sucesso.`);
+        } catch (error) {
+            setSubmitError(error.message || "Nao foi possivel enviar o pedido agora.");
+        }
     };
 
     return (
@@ -119,9 +145,14 @@ export function ContactSection() {
                     <Button type="submit" className="w-full" disabled={isSubmitting}>
                         {isSubmitting ? "Enviando..." : "Enviar Pedido"}
                     </Button>
-                    {isSubmitSuccessful && (
+                    {submitSuccess && (
                         <p className="rounded-xl border border-emerald-700/25 bg-emerald-50 px-3 py-2 text-center text-sm font-semibold text-emerald-800">
-                            Mensagem enviada com sucesso. Em breve entraremos em contato.
+                            {submitSuccess}
+                        </p>
+                    )}
+                    {submitError && (
+                        <p className="rounded-xl border border-red-700/25 bg-red-50 px-3 py-2 text-center text-sm font-semibold text-red-800">
+                            {submitError}
                         </p>
                     )}
                 </motion.form>
